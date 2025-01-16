@@ -2,4 +2,4 @@
 
 15.1: restarted the coding, did the player object and used the skeleton spritesheet, coded randomized items
 
-16.1: Made items spawn consecutively,
+16.1: Made items spawn consecutively, added values for score and lives in main,
