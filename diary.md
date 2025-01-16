@@ -15,7 +15,8 @@
 
 
 
-
+collission
+ins objekt reingehen ohne cockblock, wenn reinlaufen entweder punkte oder abzug, sobald berührt remove object
 
 
 
