@@ -15,7 +15,8 @@
 
 
 
-collission react to collision
+collission react to collision in block objects
+
 ins objekt (frau) reingehen ohne cockblock, wenn reinlaufen entweder punkte oder abzug, sobald berührt remove object
 
 
