@@ -16,7 +16,7 @@
 
 
 collission
-ins objekt reingehen ohne cockblock, wenn reinlaufen entweder punkte oder abzug, sobald berührt remove object
+ins objekt (frau) reingehen ohne cockblock, wenn reinlaufen entweder punkte oder abzug, sobald berührt remove object
 
 
 
