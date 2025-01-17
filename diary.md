@@ -4,7 +4,7 @@
 
 16.1: Made items spawn consecutively, added values for score and lives in main, implemented so that when items hit the ground the player loses a life, made the game over screen
 
-17.1: finished my collision detection. The player now looses a life if good items drop on the floor but doesnt when bad items fall on the floor. Also the scoring works correctly now (yippie)   
+17.1: finished my collision detection. The player now looses a life if good items drop on the floor but doesnt when bad items fall on the floor. Also the scoring works correctly now (yippie), tried to fix the bounds of the item drop, bug with bounds of player when he touches the left or right side of the canvas 
 
 
 
