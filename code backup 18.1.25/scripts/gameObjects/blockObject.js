@@ -35,7 +35,7 @@ class BlockObject extends BaseGameObject {
             }  
         }
         if (global.score >= 10) {
-            this.xVelocity * 1.003;
+            this.xVelocity * 1.03;
         }
     }
 
