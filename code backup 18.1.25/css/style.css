@@ -1,0 +1,35 @@
+html, body {
+    font-family: "VT323", serif;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    height: 100%;
+    align-items: center;
+}
+
+
+#gameContainer {
+    position: relative;
+    width: 700px; /* change according to your game */
+    height: 500px; /* change according to your game */
+}
+
+#canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: lightblue;
+}
+
+
+#background {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1000px; 
+    height: 500px;
+    background-image: url("../images/background.jpg");
+    background-size: cover;
+
+}
+/* add styles for other HTML elements of your game */
