@@ -6,7 +6,7 @@
 
 17.1: finished my collision detection. The player now looses a life if good items drop on the floor but doesnt when bad items fall on the floor. Also the scoring works correctly now (yippie), tried to fix the bounds of the item drop, bug with bounds of player when he touches the left or right side of the canvas 
 
-18.1: implemented a "play again" button for my game over screen and redid some of the item art to make them a bigger size. Also made it so the scoring and the health display are on the top left corner of the canvas, implemented the start screen with a "start game" button. Added new items like a heart that adds health and mad the player lose a life if they catch a bomb. implemented the background art for the starting screen.
+18.1: implemented a "play again" button for my game over screen and redid some of the item art to make them a bigger size. Also made it so the scoring and the health display are on the top left corner of the canvas, implemented the start screen with a "start game" button. Added new items like a heart that adds health and made the player lose a life if they catch a bomb. implemented the background art for the starting screen.
 
 
 
