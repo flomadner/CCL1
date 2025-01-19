@@ -4,7 +4,7 @@ import { global } from "../modules/global.js";
 
 class BlockObject extends BaseGameObject {
     blockGravityForces = true;
-    items = ["./images/ball.png","./images/meat.png","./images/bomb.png","./images/trash.png"];
+    items = ["./images/ball.png","./images/meat.png","./images/croissant.png","./images/bomb.png","./images/trash.png", "./images/tin.png","./images/heart.png"];
     damageAlreadyDone = false;
     xVelocity = 1;
 
@@ -12,11 +12,17 @@ class BlockObject extends BaseGameObject {
         if (collidingObject.name == "Skeleton") {
             // collidingObject.x = collidingObject.previousX;
             // collidingObject.y = collidingObject.previousY;
-            if (this.items[this.index] === "./images/ball.png" || this.items[this.index] === "./images/meat.png") {
+            if (this.items[this.index] === "./images/ball.png" || this.items[this.index] === "./images/meat.png" || this.items[this.index] === "./images/croissant.png") {
                 global.score += 10;  // Player gains 10 points for catching ball or meat
             } 
-            else if (this.items[this.index] === "./images/bomb.png" || this.items[this.index] === "./images/trash.png") {
+            else if (this.items[this.index] === "./images/trash.png" || this.items[this.index] === "./images/tin.png") {
                 global.score -= 10;  // Player loses 10 points for catching bomb or trash
+            }
+            if (this.items[this.index] === "./images/heart.png" && global.lives < 3) {
+                global.lives += 1;
+            }
+            if (this.items[this.index] === "./images/bomb.png" && global.lives >= 0) {
+                global.lives -= 1;
             }
             
         }
@@ -28,7 +34,7 @@ class BlockObject extends BaseGameObject {
         this.y += 70 * global.deltaTime * this.xVelocity;
         
         if (this.y >= global.canvas.height - 30 && !this.damageAlreadyDone) {  
-            if (this.items[this.index] === "./images/ball.png" || this.items[this.index] === "./images/meat.png") {
+            if (this.items[this.index] === "./images/ball.png" || this.items[this.index] === "./images/meat.png" || this.items[this.index] === "./images/croissant.png") {
                 global.lives--; 
                 this.damageAlreadyDone = true;
                 console.log(global.lives);

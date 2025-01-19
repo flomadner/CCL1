@@ -77,7 +77,7 @@ function createStartScreen() {
     global.ctx.clearRect(0, 0, global.canvas.width, global.canvas.height);
 
     // Display the title
-    global.ctx.font = "70px VT323";
+    global.ctx.font = "100px VT323";
     global.ctx.fillStyle = "black";
     global.ctx.textAlign = "center";
     global.ctx.fillText("Paws Up !", global.canvas.width / 2, global.canvas.height / 3); // Centered title
@@ -111,8 +111,9 @@ function gameLoop(totalRunningTime) {
         console.log("Game Over");
 
         // Display Game Over message
-        global.ctx.font = "70px VT323";
-        global.ctx.fillText("Game Over!", 200, 200);
+        global.ctx.font = "100px VT323";
+        global.ctx.textAlign = "center";
+        global.ctx.fillText("Game Over !", global.canvas.width / 2, global.canvas.height / 3);
 
         // Create the "Play Again" button if it doesn't exist already
         if (!document.getElementById("playAgainButton")) {
