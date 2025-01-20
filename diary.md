@@ -8,6 +8,8 @@
 
 18.1: implemented a "play again" button for my game over screen and redid some of the item art to make them a bigger size. Also made it so the scoring and the health display are on the top left corner of the canvas, implemented the start screen with a "start game" button. Added new items like a heart that adds health and made the player lose a life if they catch a bomb. implemented the background art for the starting screen.
 
+20.1: made the fee walking sprites and implemented them in the game, replacing the skeleton template ones. Also implemented my main screen.
+
 
 
 
