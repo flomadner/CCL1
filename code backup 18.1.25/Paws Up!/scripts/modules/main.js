@@ -6,6 +6,17 @@ import { Floor } from "../gameObjects/floor.js";
 
 let lastSpawnTime = 0;
 
+// Define the main game background image
+const mainBackgroundImage = new Image();
+mainBackgroundImage.src = "./images/main-screen.png"; // Path to main-screen.png
+
+// Function to draw the main game background
+function drawMainGameBackground() {
+    if (mainBackgroundImage.complete) { // Ensure the image is loaded
+        global.ctx.drawImage(mainBackgroundImage, 0, 0, global.canvas.width, global.canvas.height);
+    }
+}
+
 // Function to spawn items at random positions
 function spawnItems(totalRunningTime) {
     const spawnInterval = 3000; // Spawn an item every 3 seconds
@@ -17,7 +28,7 @@ function spawnItems(totalRunningTime) {
         const randomX = Math.floor(Math.random() * maxX);  // Random X position within valid range
 
         // Create a new item at the random position
-        new BlockObject(randomX + 20, 0, itemWidth, itemWidth); // Spawns item at random X
+        new BlockObject(randomX + 10, 0, itemWidth, itemWidth); // Spawns item at random X
         lastSpawnTime = totalRunningTime; // Update the last spawn time
     }
 }
@@ -56,12 +67,12 @@ function resetGame() {
 
 // Function to create the Game Over screen and Play Again button
 function createGameOverScreen() {
-    
     const playAgainButton = document.createElement("button");
     playAgainButton.textContent = "Play Again";
     playAgainButton.id = "playAgainButton";
     document.body.appendChild(playAgainButton);
-
+    
+    
     // Attach event listener to restart the game
     playAgainButton.addEventListener("click", () => {
         // Remove the button
@@ -74,39 +85,38 @@ function createGameOverScreen() {
 
 // Function to create the Start Screen with title and "Start Game" button
 function createStartScreen() {
-    // Clear the canvas first
     const backgroundImage = new Image(); // Create a new image object
     backgroundImage.src = "./images/title-screen.png"; // Set the path to your PNG file
 
     backgroundImage.onload = function () {
         // Clear the canvas first
-     global.ctx.clearRect(0, 0, global.canvas.width, global.canvas.height);
+        global.ctx.clearRect(0, 0, global.canvas.width, global.canvas.height);
 
         // Draw the background image
-    global.ctx.drawImage(backgroundImage, 0, 0, global.canvas.width, global.canvas.height);
+        global.ctx.drawImage(backgroundImage, 0, 0, global.canvas.width, global.canvas.height);
 
-    // Display the title
-    global.ctx.font = "100px VT323";
-    global.ctx.fillStyle = "white";
-    global.ctx.textAlign = "center";
-    global.ctx.fillText("Paws Up !", global.canvas.width / 2, global.canvas.height / 2 -50); // Centered title
+        // Display the title
+        global.ctx.font = "100px VT323";
+        global.ctx.fillStyle = "white";
+        global.ctx.textAlign = "center";
+        global.ctx.fillText("Paws Up !", global.canvas.width / 2, global.canvas.height / 2 - 50); // Centered title
 
-    // Create Start Game button
-    const startButton = document.createElement("button");
-    startButton.textContent = "Start Game";
-    startButton.id = "startButton";
-    document.body.appendChild(startButton);
+        // Create Start Game button
+        const startButton = document.createElement("button");
+        startButton.textContent = "Start Game";
+        startButton.id = "startButton";
+        document.body.appendChild(startButton);
 
-    // Attach event listener to start the game when clicked
-    startButton.addEventListener("click", () => {
-        // Remove the Start Game button
-        startButton.remove();
+        // Attach event listener to start the game when clicked
+        startButton.addEventListener("click", () => {
+            // Remove the Start Game button
+            startButton.remove();
 
-        // Start the game
-        setupGame();
-        requestAnimationFrame(gameLoop); // Start the game loop
-    });
-    }
+            // Start the game
+            setupGame();
+            requestAnimationFrame(gameLoop); // Start the game loop
+        });
+    };
 }
 
 // Main game loop function
@@ -123,13 +133,16 @@ function gameLoop(totalRunningTime) {
         // Display Game Over message
         global.ctx.font = "100px VT323";
         global.ctx.textAlign = "center";
-        global.ctx.fillText("Game Over !", global.canvas.width / 2, global.canvas.height / 2 -50);
+        global.ctx.fillText("Game Over !", global.canvas.width / 2, global.canvas.height / 2 - 50);
 
         // Create the "Play Again" button if it doesn't exist already
         if (!document.getElementById("playAgainButton")) {
             createGameOverScreen();
         }
     } else {
+        // Draw the main game background
+        drawMainGameBackground();
+
         // Spawn items periodically
         spawnItems(totalRunningTime);
 
@@ -142,6 +155,7 @@ function gameLoop(totalRunningTime) {
                 global.allGameObjects[i].draw();
             }
         }
+
         // Update the display of lives and score
         updateDisplay();
     }
@@ -158,6 +172,6 @@ function setupGame() {
 }
 
 // Start by creating the Start Screen
-window.onload = function() {
+window.onload = function () {
     createStartScreen(); // Show the start screen when the page is loaded
 };

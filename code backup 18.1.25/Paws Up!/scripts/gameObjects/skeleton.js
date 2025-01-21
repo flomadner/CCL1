@@ -20,7 +20,7 @@ class Skeleton extends BaseGameObject {
     }
 
     edgeCollision = function () {
-        if (this.x <= -20 || this.x >= global.canvas.width-50) {
+        if (this.x <= - 0 || this.x >= global.canvas.width - 58) {
             this.x = this.prevX
         }
     }
@@ -48,7 +48,7 @@ class Skeleton extends BaseGameObject {
     constructor(x, y, width, height) {
         super(x, y, width, height);
         //this.loadImages(["./images/apple.png"]);
-        this.loadImagesFromSpritesheet("./images/BODY_skeleton.png", 9, 4);
+        this.loadImagesFromSpritesheet("./images/fee-walking-sprite.png", 6, 2);
     }
 }
 
