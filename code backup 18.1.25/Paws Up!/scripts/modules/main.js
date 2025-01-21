@@ -1,6 +1,5 @@
 import { global } from "./global.js";
 import { Skeleton } from "../gameObjects/skeleton.js";
-import { MoveTrigger } from "../gameObjects/moveTrigger.js";
 import { BlockObject } from "../gameObjects/blockObject.js";
 import { Floor } from "../gameObjects/floor.js";
 
@@ -72,7 +71,6 @@ function createGameOverScreen() {
     playAgainButton.id = "playAgainButton";
     document.body.appendChild(playAgainButton);
     
-    
     // Attach event listener to restart the game
     playAgainButton.addEventListener("click", () => {
         // Remove the button
@@ -108,7 +106,8 @@ function createStartScreen() {
         document.body.appendChild(startButton);
 
         // Attach event listener to start the game when clicked
-        startButton.addEventListener("click", () => {
+        startButton.addEventListener("click", () => { 
+            global.startGame = true;
             // Remove the Start Game button
             startButton.remove();
 
@@ -129,7 +128,8 @@ function gameLoop(totalRunningTime) {
 
     if (global.gameOver === true) {
         console.log("Game Over");
-
+        global.gameOverSprite.draw();
+        
         // Display Game Over message
         global.ctx.font = "100px VT323";
         global.ctx.textAlign = "center";
@@ -139,6 +139,11 @@ function gameLoop(totalRunningTime) {
         if (!document.getElementById("playAgainButton")) {
             createGameOverScreen();
         }
+
+    } else if (global.startGame === false) {
+        global.startScreenSprite.draw();
+
+
     } else {
         // Draw the main game background
         drawMainGameBackground();
@@ -168,6 +173,7 @@ function setupGame() {
     global.playerObject = new Skeleton(0, 430, 64, 64); // Initialize the player object
     new Floor(0, 400, 9000, 30); // Initialize the floor
 
+    
     // Other setup logic can go here (add more objects as needed)
 }
 

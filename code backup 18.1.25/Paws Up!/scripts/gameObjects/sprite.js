@@ -1,6 +1,6 @@
 import { global } from "../modules/global.js"
 
-export class BaseGameObject {
+export class Sprite {
     active = true;
     name = "";
     x = 100;
@@ -25,87 +25,22 @@ export class BaseGameObject {
 
     animationData = {
         "animationSprites": [],
-        "timePerSprite": 0.08,
+        "timePerSprite": 0.12,
         "currentSpriteElapsedTime": 0,
         "firstSpriteIndex": 0,
         "lastSpriteIndex": 0,
         "currentSpriteIndex": 0
     };
 
+    constructor(x, y, width, height) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        this.previousX = x;
+        this.previousY = y;
+    }
 
-    getBoxBounds = function () {
-        let bounds = {
-            left: this.x,
-            right: this.x + this.width,
-            top: this.y,
-            bottom: this.y + this.height
-        }
-        return bounds;
-    };
-
-    storePrevPos = function () {
-    };
-    
-    update = function () { 
-
-    };
-
-    applyGravity = function () {
-
-        if (!this.useGravityForces)
-            return;
-       
-        this.physicsData.fallVelocity += global.gravityForce * global.deltaTime * global.pixelToMeter;
-        
-        if (this.physicsData.jumpForce > 0) {
-
-            this.physicsData.fallVelocity += -(global.gravityForce * global.deltaTime * global.pixelToMeter) + (global.gravityForce * global.deltaTime * global.pixelToMeter) * this.physicsData.jumpForceDecay;
-            if (this.physicsData.isGrounded == true) {
-               this.physicsData.fallVelocity = -this.physicsData.jumpForce * global.pixelToMeter;
-               this.physicsData.prevFallingVelocity = this.physicsData.fallVelocity * global.deltaTime;
-            }
-    
-            this.physicsData.isGrounded = false;
-     
-            if (this.physicsData.fallVelocity >= 0) {
-                this.physicsData.jumpForce = 0;
-            }
-        }
- 
-        if (this.physicsData.fallVelocity > this.physicsData.terminalVelocity * global.pixelToMeter) {
-            this.physicsData.fallVelocity = this.physicsData.terminalVelocity  * global.pixelToMeter;
-        }
-
-        this.y += (this.physicsData.fallVelocity * global.deltaTime + this.physicsData.prevFallingVelocity) / 2;
-        this.physicsData.prevFallingVelocity = this.physicsData.fallVelocity  * global.deltaTime;
-
-        for (let i = 0; i < global.allGameObjects.length; i++) {
-            let otherObject = global.allGameObjects[i];
-            if (otherObject.active == true && otherObject.blockGravityForces == true) {
-                let collisionHappened = global.detectBoxCollision(this, otherObject);
-                if (collisionHappened) {
-                        if (this.physicsData.fallVelocity > 0) {
-                            this.physicsData.isGrounded = true;
-                            this.y = otherObject.getBoxBounds().top - this.height - (this.getBoxBounds().bottom - (this.y + this.height)) - (global.deltaTime * 0.1);
-                        }
-                        else if (this.physicsData.fallVelocity < 0) {
-                            this.y = otherObject.getBoxBounds().bottom - (this.getBoxBounds().top - this.y) - (global.deltaTime * 0.1);
-                        }
-                        this.physicsData.jumpForce = 0;
-                        this.physicsData.fallVelocity = 0;
-                        this.physicsData.prevFallingVelocity = 0;
-                        this.physicsData.jumpForceStart = 0;
-                }
-            }   
-        }    
-    };
-
-    setJumpForce = function (jumpForce) {
-        if (this.physicsData.isGrounded == true) 
-        {
-            this.physicsData.jumpForce = jumpForce;
-        }
-    };
 
     draw = function () {
         let sprite = this.getNextSprite();
@@ -198,20 +133,5 @@ export class BaseGameObject {
         this.animationData.lastSpriteIndex = lastSpriteIndex;
     }
 
-    reactToCollision = function(collidingObject) {
-        collidingObject.active = false;
-    }
-
-    
-    constructor(x, y, width, height) {
-        this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height = height;
-        this.previousX = x;
-        this.previousY = y;
-        global.allGameObjects.push(this);
-        this.index = global.allGameObjects.length - 1;
-    }
 
 }

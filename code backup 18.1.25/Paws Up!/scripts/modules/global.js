@@ -1,3 +1,6 @@
+import { Sprite } from "../gameObjects/sprite.js";
+
+
 const global = {};
 
 global.canvas = document.querySelector("#canvas");
@@ -15,6 +18,17 @@ global.rightMoveTrigger;
 global.lives = 3;
 global.score = 0;
 global.gameOver = false;
+global.startGame = false;
+
+global.gameOverSprite = new Sprite(320,300,150,150);
+global.gameOverSprite.loadImagesFromSpritesheet("./images/gameover-fee.png", 2, 3);
+global.gameOverSprite.switchCurrentSprites(0,5);
+
+global.startScreenSprite = new Sprite(500,380,90,90);
+global.startScreenSprite.loadImagesFromSpritesheet("./images/startscreen-fee.png", 2, 3);
+global.startScreenSprite.switchCurrentSprites(0,5);
+
+
 
 global.getCanvasBounds = function () {
     let bounds =  {
