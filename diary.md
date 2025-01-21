@@ -10,6 +10,8 @@
 
 20.1: made the fee walking sprites and implemented them in the game, replacing the skeleton template ones. Also implemented my main screen.
 
+21.1: implemented the animations in the gameover screen and the start screen.
+
 
 
 
