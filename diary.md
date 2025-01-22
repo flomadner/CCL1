@@ -12,6 +12,7 @@
 
 21.1: implemented the animations in the gameover screen and the start screen.
 
+22.1: implemented the starting screen animation. (thank you lukas) 
 
 
 
