@@ -2,7 +2,7 @@ import { global } from "./global.js";
 import { Skeleton } from "../gameObjects/skeleton.js";
 import { BlockObject } from "../gameObjects/blockObject.js";
 import { Floor } from "../gameObjects/floor.js";
-
+const backgroundImage = new Image();
 let lastSpawnTime = 0;
 
 // Define the main game background image
@@ -83,7 +83,7 @@ function createGameOverScreen() {
 
 // Function to create the Start Screen with title and "Start Game" button
 function createStartScreen() {
-    const backgroundImage = new Image(); // Create a new image object
+     // Create a new image object
     backgroundImage.src = "./images/title-screen.png"; // Set the path to your PNG file
 
     backgroundImage.onload = function () {
@@ -91,13 +91,10 @@ function createStartScreen() {
         global.ctx.clearRect(0, 0, global.canvas.width, global.canvas.height);
 
         // Draw the background image
-        global.ctx.drawImage(backgroundImage, 0, 0, global.canvas.width, global.canvas.height);
-
+        
+        // global.startScreenSprite.draw();
         // Display the title
-        global.ctx.font = "100px VT323";
-        global.ctx.fillStyle = "white";
-        global.ctx.textAlign = "center";
-        global.ctx.fillText("Paws Up !", global.canvas.width / 2, global.canvas.height / 2 - 50); // Centered title
+       
 
         // Create Start Game button
         const startButton = document.createElement("button");
@@ -113,7 +110,7 @@ function createStartScreen() {
 
             // Start the game
             setupGame();
-            requestAnimationFrame(gameLoop); // Start the game loop
+             // Start the game loop
         });
     };
 }
@@ -125,7 +122,7 @@ function gameLoop(totalRunningTime) {
     global.prevTotalRunningTime = totalRunningTime; // Save the current state of "totalRunningTime"
 
     global.ctx.clearRect(0, 0, global.canvas.width, global.canvas.height); // Clear the canvas
-
+    
     if (global.gameOver === true) {
         console.log("Game Over");
         global.gameOverSprite.draw();
@@ -141,7 +138,12 @@ function gameLoop(totalRunningTime) {
         }
 
     } else if (global.startGame === false) {
+        global.ctx.drawImage(backgroundImage, 0, 0, global.canvas.width, global.canvas.height);
         global.startScreenSprite.draw();
+        global.ctx.font = "100px VT323";
+        global.ctx.fillStyle = "white";
+        global.ctx.textAlign = "center";
+        global.ctx.fillText("Paws Up !", global.canvas.width / 2, global.canvas.height / 2 - 50); // Centered title
 
 
     } else {
@@ -181,3 +183,4 @@ function setupGame() {
 window.onload = function () {
     createStartScreen(); // Show the start screen when the page is loaded
 };
+requestAnimationFrame(gameLoop);
