@@ -14,7 +14,7 @@
 ### Main Gameplay:
 <div style="text-align: center;">
   <img src="gameplay.png" alt="Gameplay Screenshot" width="600">
-  <p>*Figure 1: Example of gameplay in action.*</p>
+  <p>*Example of gameplay in action.*</p>
 </div>
 
 ---
@@ -22,14 +22,14 @@
 ### Menu:
 <div style="text-align: center;">
   <img src="menu.png" alt="Title Screen Screenshot" width="600">
-  <p>*Figure 2: Menu and user interface.*</p>
+  <p>*Title Screen*</p>
 </div>
 
 ---
 ### Gameover:
 <div style="text-align: center;">
   <img src="gameover.png" alt="Gameover Screenshot" width="600">
-  <p>*Figure 2: Menu and user interface.*</p>
+  <p>*Gameover Screen*</p>
 </div>
 
 ---
@@ -39,16 +39,23 @@ Below are the sprites used to create characters and objects in the game:
 
 ### Player Character:
 <div style="text-align: center;">
-  <img src="playersheet.png" alt="Player Spritesheet" width="500">
-  <p>*Figure 3: Player character animations.*</p>
+  <img src="fee-walking-sprite.png" alt="Fee Spritesheet" width="500">
+  <p>*Player character animations.*</p>
 </div>
 
 ---
 
-### Enemies and NPCs:
+### Startscreen animation:
 <div style="text-align: center;">
-  <img src="enemysheet.png" alt="Enemy Spritesheet" width="500">
-  <p>*Figure 4: Enemy animations.*</p>
+  <img src="startscreen-fee.png" alt="Startscreen Spritesheet" width="500">
+  <p>*Startscreen animations*</p>
+</div>
+
+---
+### Gameover animation:
+<div style="text-align: center;">
+  <img src="gameover-fee.png" alt="Gameover Spritesheet" width="500">
+  <p>*Gameover screen animation*</p>
 </div>
 
 ---
