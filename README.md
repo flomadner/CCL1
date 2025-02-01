@@ -29,7 +29,7 @@
 ### Gameover:
 <div style="text-align: center;">
   <img src="gameover.png" alt="Gameover Screenshot" width="600">
-  <p>*Gameover Screen*</p>
+  <p>**Gameover Screen**</p>
 </div>
 
 ---
