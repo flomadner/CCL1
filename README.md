@@ -5,7 +5,7 @@
 ---
 
 ## 🌐 **Play the Game**
-[Click here to play the game!](https://flomadner.github.io/repository-name)
+[Click here to play the game!](https://flomadner.github.io/CCL1)
 
 ---
 
