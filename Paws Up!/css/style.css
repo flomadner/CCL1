@@ -7,11 +7,10 @@ html, body {
     align-items: center;
 }
 
-
 #gameContainer {
     position: relative;
-    width: 800px; /* change according to your game */
-    height: 500px; /* change according to your game */
+    width: 800px; 
+    height: 500px; 
 }
 
 #canvas {
@@ -35,6 +34,7 @@ html, body {
     background-color: #16175e; 
     color: rgb(255, 255, 255);
 }
+
 #startButton {
     position: absolute;
     top: 50%;
@@ -43,10 +43,10 @@ html, body {
     padding: 10px 15px;
     font-size: 30px;
     cursor: pointer;
-    font-family: "VT323", serif; /* Match the game font */
-    background-color: #64acdc; /* Green background for button */
-    color: rgb(255, 255, 255); /* White text color */
-    border: none; /* Remove default button borders */
+    font-family: "VT323", serif; 
+    background-color: #64acdc; 
+    color: rgb(255, 255, 255); 
+    border: none; 
     border-radius: 10px; 
 }
 
@@ -58,6 +58,4 @@ html, body {
     height: 500px;
     background-image: url("../images/background.jpg");
     background-size: cover;
-
 }
-/* add styles for other HTML elements of your game */

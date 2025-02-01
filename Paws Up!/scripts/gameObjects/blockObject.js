@@ -32,8 +32,6 @@ class BlockObject extends BaseGameObject {
         }
     }
 
-   
-
     update = function() {
         this.y += 70 * global.deltaTime * this.xVelocity;
         

@@ -41,6 +41,8 @@ function spawnItems(totalRunningTime) {
     }
 }
 
+const globalLivesImage = new Image();
+globalLivesImage.src = "./images/heart.png";
 // Function to update the display (lives and score)
 function updateDisplay() {
     // Set font and text style for displaying score and lives
@@ -49,9 +51,12 @@ function updateDisplay() {
     global.ctx.textAlign = "left"; // Align text to the left
 
     // Display lives and score on the canvas
-    global.ctx.fillText(`Lives: ${global.lives}`, 10, 30); // Text at 10px from the left, 30px from the top
+   // Draw lives as images instead of text
+   for (let i = 0; i < global.lives; i++) {
+    global.ctx.drawImage(globalLivesImage, 10 + i * 40, 10, 30, 30); // Adjust spacing as needed
+    }
+    
     global.ctx.fillText(`Score: ${global.score}`, 10, 60); // Text at 10px from the left, 60px from the top
-
     // Check for game-over conditions
     if (global.lives === 0 || global.score < 0) {
         global.gameOver = true;
