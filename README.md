@@ -19,10 +19,16 @@
 
 ---
 
-### Menu and UI:
+### Menu:
 <div style="text-align: center;">
-  <img src="![image](https://github.com/user-attachments/assets/685564e4-3830-4255-9336-d3953f164ca8)
-" alt="Menu UI Screenshot" width="600">
+  <img src="menu.png" alt="Title Screen Screenshot" width="600">
+  <p>*Figure 2: Menu and user interface.*</p>
+</div>
+
+---
+### Gameover:
+<div style="text-align: center;">
+  <img src="gameover.png" alt="Gameover Screenshot" width="600">
   <p>*Figure 2: Menu and user interface.*</p>
 </div>
 
