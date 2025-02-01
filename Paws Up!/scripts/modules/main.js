@@ -2,12 +2,13 @@ import { global } from "./global.js";
 import { Skeleton } from "../gameObjects/skeleton.js";
 import { BlockObject } from "../gameObjects/blockObject.js";
 import { Floor } from "../gameObjects/floor.js";
+
 const backgroundImage = new Image();
 let lastSpawnTime = 0;
 
 // Define the main game background image
 const mainBackgroundImage = new Image();
-mainBackgroundImage.src = "./images/main-screen.png"; // Path to main-screen.png
+mainBackgroundImage.src = "./images/main-screen.png";
 
 // Function to draw the main game background
 function drawMainGameBackground() {
@@ -27,8 +28,8 @@ function drawGameOverImage() {
 
 // Function to spawn items at random positions
 function spawnItems(totalRunningTime) {
-    const spawnInterval = 1500; // Spawn an item every 3 seconds
-    const itemWidth = 50;  // Width of the spawned item (adjust as necessary)
+    const spawnInterval = 1500; // Spawn an item every 1.5 seconds
+    const itemWidth = 50;  // Width of the spawned item 
 
     if (totalRunningTime - lastSpawnTime >= spawnInterval) {
         // Generate a random X position, ensuring the item is within canvas bounds
@@ -48,14 +49,14 @@ function updateDisplay() {
     // Set font and text style for displaying score and lives
     global.ctx.font = "25px VT323";
     global.ctx.fillStyle = "white";
-    global.ctx.textAlign = "left"; // Align text to the left
+    global.ctx.textAlign = "left"; 
 
     // Display lives and score on the canvas
    // Draw lives as images instead of text
    for (let i = 0; i < global.lives; i++) {
-    global.ctx.drawImage(globalLivesImage, 10 + i * 40, 10, 30, 30); // Adjust spacing as needed
+    global.ctx.drawImage(globalLivesImage, 10 + i * 40, 10, 30, 30); 
     }
-    
+
     global.ctx.fillText(`Score: ${global.score}`, 10, 60); // Text at 10px from the left, 60px from the top
     // Check for game-over conditions
     if (global.lives === 0 || global.score < 0) {
@@ -99,14 +100,12 @@ function createGameOverScreen() {
 // Function to create the Start Screen with title and "Start Game" button
 function createStartScreen() {
      // Create a new image object
-    backgroundImage.src = "./images/title-screen.png"; // Set the path to your PNG file
+    backgroundImage.src = "./images/title-screen.png"; 
 
     backgroundImage.onload = function () {
         // Clear the canvas first
         global.ctx.clearRect(0, 0, global.canvas.width, global.canvas.height);
 
-        // Draw the background image
-        
         // Create Start Game button
         const startButton = document.createElement("button");
         startButton.textContent = "Start Game";
@@ -187,8 +186,6 @@ function setupGame() {
     global.playerObject = new Skeleton(0, 410, 100, 90); // Initialize the player object
     new Floor(0, 380, 9000, 30); // Initialize the floor
 
-    
-    // Other setup logic can go here (add more objects as needed)
 }
 
 // Start by creating the Start Screen

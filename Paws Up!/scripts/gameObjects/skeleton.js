@@ -2,7 +2,7 @@ import { BaseGameObject } from "./baseGameObject.js";
 import { global } from "../modules/global.js";
 
 class Skeleton extends BaseGameObject {
-    name = "Skeleton";
+    name = "Skeleton"; //had to keep the name because otherwise it messes everything up;
     xVelocity = 0;
     yVelocity = 0;
     prevX = 0;
@@ -40,14 +40,8 @@ class Skeleton extends BaseGameObject {
         this.edgeCollision();
     }
 
-    /*draw = function () {
-        global.ctx.fillStyle = "#000000";
-        global.ctx.fillRect(this.x, this.y, this.width, this.height);
-    }*/
-
     constructor(x, y, width, height) {
         super(x, y, width, height);
-        //this.loadImages(["./images/apple.png"]);
         this.loadImagesFromSpritesheet("./images/fee-walking-sprite.png", 6, 2);
     }
 }

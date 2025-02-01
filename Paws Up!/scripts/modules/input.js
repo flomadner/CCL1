@@ -2,7 +2,6 @@ import { global } from "./global.js";
 
 function move(event) {
 
-    //Example Movement for the PacMan Game
     switch(event.key) {
         case "d":
             if (global.playerObject.xVelocity == 0)
@@ -17,14 +16,6 @@ function move(event) {
             global.playerObject.xVelocity = -200;
             global.playerObject.yVelocity = 0;
             break;
-        // case "w":
-        //     global.playerObject.setJumpForce(10);
-        //     break;
-        // case "s":
-        //     global.playerObject.xVelocity = 0;
-        //     global.playerObject.yVelocity = 100;
-        //     global.playerObwject.switchCurrentSprites(3, 5);
-        //     break; 
     }
 }
 
